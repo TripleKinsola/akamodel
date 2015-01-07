@@ -1,29 +1,21 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class Comment_replies{
+class SchNameList{
     // Migration properties...
-    //1	id	int(11)		AUTO_INCREMENT
-    //2	comment_id	int(11)
-    //3	reply_text	varchar(300)
-    //4	replier_user_id	int(11)
-    //5	date_added	timestamp 	CURRENT_TIMESTAMP
 
-    private static $table = "comment_replies"; //Db Table
-    protected static $db_fields=array('id', 'comment_id', 'reply_text', 'replier_user_id', 'date_added');
+    //1	id	int(11)	AUTO_INCREMENT
+    //2	acronym	varchar(15)
+    //3	name	varchar(200)
+
+    private static $table = "sch_name_list"; //Db Table
+    protected static $db_fields=array('id', 'acronym', 'name');
 
     // Class properties
     public $id;
-    public $comment_id;
-    public $reply_text;
-    public $replier_user_id;
-    public $date_added = 'NOW()';//In the DBase, it authomatically set....
-
+    public $acronym;
+    public $name;
 
     // Common Database Methods
     public static function find_all() {

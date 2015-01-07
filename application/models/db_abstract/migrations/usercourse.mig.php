@@ -1,29 +1,27 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class Forum{
+class UserCourse{
     // Migration properties...
 
     //1	id	int(11)	AUTO_INCREMENT
-    //2	title	varchar(100)
-    //3	description	text
-    //4	date_added	timestam 	CURRENT_TIMESTAMP
-    //5	if_approved	int(11)
+    //2	user_id	int(11)
+    //3	course_id	int(11)
+    //4	fullname	varchar(100)
+    //5	department	varchar(100)
+    //6	reg_no	varchar(50)
 
-    private static $table = "forums"; //Db Table
-    protected static $db_fields=array('id', 'title', 'description', 'date_added', 'if_approved');
+    private static $table = "user_courses"; //Db Table
+    protected static $db_fields=array('id', 'user_id', 'course_id', 'fullname', 'department', 'reg_no');
 
     // Class properties
     public $id;
-    public $title;
-    public $description;
-    public $date_added = 'NOW()';//In the DBase, it authomatically set....
-    public $if_approved;
+    public $user_id;
+    public $course_id;
+    public $fullname;
+    public $department;
+    public $reg_no;
 
     // Common Database Methods
     public static function find_all() {

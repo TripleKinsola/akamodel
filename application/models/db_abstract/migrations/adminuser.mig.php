@@ -1,12 +1,13 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
-*
-*/
-class Admin_users{
+ * <h1>Akaddit v2 AdminUser Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
+ */
+class AdminUser{
 	// Migration properties...
 	// 1   id 	int(11) 	AUTO_INCREMENT
 	// 2 	username 	varchar(50) 	

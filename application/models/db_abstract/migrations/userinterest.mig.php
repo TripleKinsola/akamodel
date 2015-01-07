@@ -1,49 +1,21 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class Course_wares{
+class UserInterest{
     // Migration properties...
-    //1 id	int(11)	AUTO_INCREMENT
-    //2 title	varchar(100)
-    //3 file_name	varchar(100)
-    //4 file_encrypt_name	varchar(30)
-    //5 author	varchar(100)
-    //6 course_code	varchar(100)
-    //7 course_id	int(11)
-    //8 sch_id	int(11)
-    //9 thumbnail_image	varchar(20)
-    //10    uploader_user_id	int(11)
-    //11	date_added	timestamp 	CURRENT_TIMESTAMP
-    //12	courseware_type	varchar(30)
-    //13	interest_id	int(11)
-    //14	scope	int(11)
-    //15	file_size	int(11)
 
-    private static $table = "course_wares"; //Db Table
-    protected static $db_fields=array('id', 'title', 'file_name', 'file_encrypt_name', 'author', 'course_code', 'course_id', 'sch_id', 'thumbnail_image', 'uploader_user_id', 'date_added', 'courseware_type', 'interest_id', 'scope', 'file_size');
+    //1	id	int(11)	AUTO_INCREMENT
+    //2	user_id	int(11)
+    //3	interest_id	int(11)
+
+    private static $table = "user_innterests"; //Db Table
+    protected static $db_fields=array('id', 'user_id', 'interest_id');
 
     // Class properties
     public $id;
-    public $title;
-    public $file_name;
-    public $file_encrypt_name;
-    public $author;
-    public $course_code;
-    public $course_id;
-    public $sch_id;
-    public $thumbnail_image;
-    public $date_added = 'NOW()';//In the DBase, it authomatically set....
-    public $uploader_user_id;
-    public $courseware_type;
+    public $user_id;
     public $interest_id;
-    public $scope;
-    public $file_size;
-
 
     // Common Database Methods
     public static function find_all() {

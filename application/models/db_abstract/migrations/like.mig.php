@@ -1,25 +1,23 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class SchNameList{
+class Like{
     // Migration properties...
 
     //1	id	int(11)	AUTO_INCREMENT
-    //2	acronym	varchar(15)
-    //3	name	varchar(200)
+    //2	item_id	int(11)
+    //3	item_type	varchar(20)
+    //4	liker_user_id	int(11)
 
-    private static $table = "sch_name_list"; //Db Table
-    protected static $db_fields=array('id', 'acronym', 'name');
+    private static $table = "likes"; //Db Table
+    protected static $db_fields=array('id', 'item_id', 'item_type', 'liker_user_id');
 
     // Class properties
     public $id;
-    public $acronym;
-    public $name;
+    public $item_id;
+    public $item_type;
+    public $liker_user_id;
 
     // Common Database Methods
     public static function find_all() {

@@ -1,27 +1,29 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class LastLoginLog{
-    // Migration properties...
+class Notification{
+    // Migation properties...
 
     //1	id	int(11)	AUTO_INCREMENT
-    //2	user_id	int(11)
-    //3	time	timestamp 	CURRENT_TIMESTAMP
-    //4	device	varchar(500)
+    //2	doer_user_id	int(11)
+    //3	author_user_id	int(11)
+    //4	type	int(11)
+    //5	item_id	int(11)
+    //6	date_added	timestamp 	CURRENT_TIMESTAMP
+    //7	if_read	int(11)
 
-    private static $table = "Last_login_logs"; //Db Table
-    protected static $db_fields=array('id', 'user_id', 'time', 'device');
+    private static $table = "notifications"; //Db Table
+    protected static $db_fields=array('id', 'doer_user_id', 'author_user_id', 'type', 'item_id', 'date_added', 'if_read');
 
     // Class properties
     public $id;
-    public $user_id;
-    public $time = 'NOW()';//In the DBase, it authomatically set....
-    public $device;
+    public $doer_user_id;
+    public $author_user_id;
+    public $type;
+    public $item_id;
+    public $if_read;
+    public $date_added = 'NOW()';//In the DBase, it authomatically set....
 
     // Common Database Methods
     public static function find_all() {

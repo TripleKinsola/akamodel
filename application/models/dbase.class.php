@@ -6,7 +6,7 @@
 * Class Instance variable = "$data" or as a reference to be "$database". But I like sticking with $data, because it's all about the data!
 */
 
-require_once("/config/config.inc.php");//Basic configurations kept away from "#$%^$*()@$#" access. Please edit a full path directory to this requirement, for it is all meal needed for the MySQLbase.class.
+// require_once("/config/config.inc.php");//Basic configurations kept away from "#$%^$*()@$#" access. Please edit a full path directory to this requirement, for it is all meal needed for the MySQLbase.class.
 class MySQLbase{
     
     private $connection;
@@ -90,5 +90,4 @@ class MySQLbase{
     
 }
 $data = new MySQLbase;
-$database &= $data;
 ?>

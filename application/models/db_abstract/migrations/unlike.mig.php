@@ -1,25 +1,23 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
  *
  */
-class UserInnterest{
+class Unlike{
     // Migration properties...
 
     //1	id	int(11)	AUTO_INCREMENT
-    //2	user_id	int(11)
-    //3	interest_id	int(11)
+    //2	item_id	int(11)
+    //3	item_type	varchar(100)
+    //4	unliker_user_id	int(11)
 
-    private static $table = "user_innterests"; //Db Table
-    protected static $db_fields=array('id', 'user_id', 'interest_id');
+    private static $table = "unlikes"; //Db Table
+    protected static $db_fields=array('id', 'item_id', 'item_type', 'unliker_user_id');
 
     // Class properties
     public $id;
-    public $user_id;
-    public $interest_id;
+    public $item_id;
+    public $fitem_type;
+    public $unliker_user_id;
 
     // Common Database Methods
     public static function find_all() {

@@ -1,31 +1,50 @@
 <?php
 /**
-//Note: @ any page or script this gem will be used, the "dbase.php" file is needed
-// and must be required {require("filepath/dbase.class.php")}.
-// Because all gems need the MySQLbase.class to be in play before their actions.
-// Note; double database connection is not a good habit, so be careful how you require files
- *
+ * <h1>Akaddit v2 User Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
  */
-class Forum_post{
+class User{
     // Migration properties...
-    //1	id	int(11)	AUTO_INCREMENT
-    //2	subject	varchar(100)
-    //3	content	text
-    //4	date_added	timestamp 	CURRENT_TIMESTAMP
-    //5	forum_id	int(11)
-    //6	author_user_id	int(11)
 
-    private static $table = "forum_posts"; //Db Table
-    protected static $db_fields=array('id', 'subject', 'content', 'date_added', 'forum_id', 'author_user_id');
+    //1	id	int(11)	AUTO_INCREMENT
+    //2	username	varchar(50)
+    //3	fullname	varchar(100)
+    //4	password	varchar(40)
+    //5	sec_sch_name	varchar(100)
+    //6	phone_num	varchar(15)
+    //7	email	varchar(50)
+    //8	gender	varchar(10)
+    //9	tert_id	int(11)
+    //10	profile_pic	varchar(50)
+    //11	user_profile_url	varchar(100)
+    //12	about	text
+    //13	remember_me	varchar(40)
+    //14	time_added	timestamp 	CURRENT_TIMESTAMP
+    //15	account_type	varchar(20) 	student
+
+    private static $table = "users"; //Db Table
+    protected static $db_fields=array('id', 'username', 'fullname', 'password', 'sec_sch_name', 'phone_num', 'email', 'gender', 'tert_id', 'profile_pic', 'user_profile_url', 'about', 'remember_me', 'time_added', 'account_type');
 
     // Class properties
     public $id;
-    public $subject;
-    public $content;
-    public $forum_id;
-    public $date_added = 'NOW()';//In the DBase, it authomatically set....
-    public $author_user_id;
-
+    public $username;
+    public $fullname;
+    public $password;
+    public $sec_sch_name;
+    public $phone_num;
+    public $email;
+    public $gender;
+    public $tert_id;
+    public $profile_pic;
+    public $user_profile_url;
+    public $about;
+    public $remember_me;
+    public $time_added;
+    public $account_type;
 
     // Common Database Methods
     public static function find_all() {
