@@ -1,0 +1,1 @@
+=> Do we really need a list.class.php when pagination.help.php is really doing its work?

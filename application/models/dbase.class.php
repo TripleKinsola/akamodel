@@ -1,12 +1,14 @@
 <?php
-
 /**
-*@ author: "#$%^&^&^*^*#$"
-* Main database parent class which could be extended by other classes that need data collections or inputs
-* Class Instance variable = "$data" or as a reference to be "$database". But I like sticking with $data, because it's all about the data!
-*/
-
-// require_once("/config/config.inc.php");//Basic configurations kept away from "#$%^$*()@$#" access. Please edit a full path directory to this requirement, for it is all meal needed for the MySQLbase.class.
+ * <h1>Akaddit v2 MySQLbase Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
+ */
+?>
+<?php
 class MySQLbase{
     
     private $connection;
@@ -88,6 +90,18 @@ class MySQLbase{
         }
     }
     
+    //General Selection
+    public function select_all($table = ''){
+        $sql = "SELECT * FROM ".$table;
+        $result_set = $this->query($sql);
+        return $result_set;
+    }
+    public function select_by_where($table = '', $what = '', $id = 0){
+        $sql = "SELECT * FROM ".$table;
+        $sql .= " WHERE ".$what." = ".$id." LIMIT 1";
+        $result = $this->query($sql);
+        return $result;
+    }
 }
 $data = new MySQLbase;
 ?>

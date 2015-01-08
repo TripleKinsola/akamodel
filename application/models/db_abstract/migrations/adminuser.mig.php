@@ -23,7 +23,6 @@ class AdminUser{
     public $password;
     public $office;
 
-
     // Common Database Methods
     public static function find_all() {
         return self::find_by_sql("SELECT * FROM ".self::$table);

@@ -1,4 +1,14 @@
 <?php
+/**
+ * <h1>Akaddit v2 Function Helpers</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
+ */
+?>
+<?php
 
 function strip_zeros_from_date( $marked_string="" ) {
   // first remove the marked zeros
@@ -17,7 +27,7 @@ function redirect_to( $location = NULL ) {
 
 function output_message($message="") {
   if (!empty($message)) { 
-    return "<p class=\"\">{$message}</p>";
+    return "<p class=\"\">".$message."</p>";
   } else {
     return "";
   }
@@ -33,23 +43,10 @@ function __autoload($class_name) {
 	}
 }
 
-// function include_layout_template($template="") {
-// 	include(SITE_ROOT.DS.'public'.DS.'layouts'.DS.$template);
-// }
-
-// function log_action($action, $message="") {
-// 	$logfile = SITE_ROOT.DS.'logs'.DS.'log.txt';
-// 	$new = file_exists($logfile) ? false : true;
-//   if($handle = fopen($logfile, 'a')) { // append
-//     $timestamp = strftime("%Y-%m-%d %H:%M:%S", time());
-// 		$content = "{$timestamp} | {$action}: {$message}\n";
-//     fwrite($handle, $content);
-//     fclose($handle);
-//     if($new) { chmod($logfile, 0755); }
-//   } else {
-//     echo "Could not open log file for writing.";
-//   }
-// }
+// spl_autoload_register(function($class){
+//   $class = strtolower($class);
+//   require_once 'application/helpers/' . $class . '.class.php';
+// });
 
 function datetime_to_text($datetime="") {
   $unixdatetime = strtotime($datetime);

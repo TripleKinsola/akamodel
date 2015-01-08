@@ -1,6 +1,15 @@
 <?php
+/**
+ * <h1>Akaddit v2 Page Pagination Helper</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
+ */
+?>
+<?php
 ///////
-// The pagination class
 //To make an instance of this class, parameters needed are as follow:
 /*
         $pagename, // maybe default to be basename($_SERVER['PHP_SELF'])

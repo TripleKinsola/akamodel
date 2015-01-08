@@ -1,8 +1,13 @@
 <?php
 /**
- *
+ * <h1>Akaddit v2 UserDownloadLog Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
  */
-class UserDownloadlog{
+class UserDownloadLog{
     // Migration properties...
 
     //1	id	int(11)	AUTO_INCREMENT
@@ -17,7 +22,7 @@ class UserDownloadlog{
     public $id;
     public $user_id;
     public $courseware_id;
-    public $date_added;
+    // public $date_added;
 
     // Common Database Methods
     public static function find_all() {

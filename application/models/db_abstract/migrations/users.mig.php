@@ -7,7 +7,7 @@
  * @copyright date('Y');
  * 
  */
-class User{
+class Users{
     // Migration properties...
 
     //1	id	int(11)	AUTO_INCREMENT

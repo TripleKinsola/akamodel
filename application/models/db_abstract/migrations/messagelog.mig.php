@@ -1,6 +1,11 @@
 <?php
 /**
- *
+ * <h1>Akaddit v2 MessageLog Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
  */
 class MessageLog{
     // Migration properties...
@@ -22,8 +27,8 @@ class MessageLog{
     public $sender_user_id;
     public $recipient_user_id;
     public $content;
-    public $if_read;
-    public $date_added = 'NOW()';//In the DBase, it authomatically set....
+    public $if_read = 0;
+    //public $date_added = 'NOW()';//In the DBase, it authomatically set....
 
     // Common Database Methods
     public static function find_all() {

@@ -1,12 +1,23 @@
 <?php
 /**
+ * <h1>Akaddit v2 Public Profile Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
+ */
+?>
+<?php
+/**
 *Classes/Migrations needed, or to be autoloaded, for this class:
 ****MySQLbase
 ****User
 ****ForumUser
+*
 ****Like
-****Comment_replies
-****ForumPost
+****CommentReplies
+****ForumPost //stoped....
 ****LastLoginLog
 *
 ****MessageLog
@@ -15,7 +26,7 @@
 ****Unlike
 ****UserCourse
 *
-****UserDownloadlog
+****UserDownloadLog
 ****UserInnterest
 *
 */
@@ -23,7 +34,7 @@ class Profile{
 	private $id;
 
 	//User Details
-	private static $table = "users"; //Db Table
+	private static $user_table = "users"; //Db Table
 
     public $username;
     public $fullname;
@@ -40,19 +51,11 @@ class Profile{
     public $time_added;
     public $account_type;
 
-    //User Public forums
-	private static $forum_table = "forum_users"; //Db Table
-    public $user_id;
-    public $forum_id;
-
-	
 	function __construct($user_id){
 		if (isset($user_id)) {
 			global $data;
-			$query = "SELECT * FROM ".self::$table;
-			$query .= " WHERE id=".$user_id." LIMIT 1";
-			$result = $data->query($query);
-			while ($needs=$data->fetch_array($result)) {
+			$sql = $data->select_by_where(self::$user_table, 'id', $user_id);
+			while ($needs=$data->fetch_array($sql)) {
 				$this->id = $user_id;
 	    		$this->username = $needs['username'];
 	    		$this->fullname = $needs['fullname'];
@@ -69,8 +72,11 @@ class Profile{
 	    		$this->time_added = $needs['time_added'];
 	    		$this->account_type = $needs['account_type'];
 			}
+			if ($data->num_rows($sql) < 1) {
+				echo "<br /><i>No Data Found!</i><br />";
+			}
 		}else{
-			die("We do not know who this user is.... Please specify!");
+			die("We do not know who this user is.... Please specify by ID!");
 		}
 	}
 	//Details Methods..
@@ -161,16 +167,19 @@ class Profile{
 
 
 	//Forums Details
+    //User Public forums
+	private static $forum_table = "forum_users"; //Db Table
+    public $user_id;
+    public $forum_id;
 	///////////////////////
 	//Return User's forum number
 	///////////////////////
+
 	public function getForumNum(){
-        global $data;
-        $sql = "SELECT COUNT(*) FROM ".self::$forum_table;
-        $sql = " WHERE user_id = ".$this->id;
-        $result_set = $data->query($sql);
-        $row = $data->fetch_array($result_set);
-        return array_shift($row);
+		global $data;
+		$sql = $data->select_by_where(self::$forum_table, 'user_id', $this->id);
+        $result_set = $data->num_rows($sql);
+		return $result_set;
 	}
 	public function getForum(){
         global $data;
@@ -180,6 +189,86 @@ class Profile{
         $result_set = $data->query($sql);
         //What to be returned to the VIEWS api...
         return $row = $data->fetch_array($result_set);
+	}
+
+	//Like Details
+    //User Public Likes
+	private static $like_table = "likes"; //Db Table
+    public $item_id;
+    public $item_type;
+    public $liker_user_id;
+		///////////////////////
+	//Return User's Like number
+	///////////////////////
+	public function getLikeNum(){
+		global $data;
+		$sql = $data->select_by_where(self::$like_table, 'liker_user_id', $this->id);
+        $result_set = $data->num_rows($sql);
+		return $result_set;
+	}
+	public function getLike(){
+		#code...
+	}
+
+	//Comment Replies
+    //User Public Comment Replies
+	private static $Comment_replies_table = "comment_replies"; //Db Table
+    public $comment_id;
+    public $reply_text;
+    public $replier_user_id;
+		///////////////////////
+	//Return User's Like number
+	///////////////////////
+	public function getCommentRepliesNum(){
+		global $data;
+		$sql = $data->select_by_where(self::$Comment_replies_table, 'replier_user_id', $this->id);
+        $result_set = $data->num_rows($sql);
+		return $result_set;
+	}
+	public function getCommentReplies(){
+		#code...
+	}
+
+	//Message Log
+    //User Public Message Log
+	private static $messages_log_table = "messages_log"; //Db Table
+    public $thread_id;
+    public $sender_user_id;
+    public $recipient_user_id;
+    public $content;
+    public $if_read;
+	///////////////////////
+	//Return
+	///////////////////////
+	public function getMessageLogNum(){
+		global $data;
+		$sql = $data->select_by_where(self::$messages_log_table, 'recipient_user_id', $this->id);
+        $result_set = $data->num_rows($sql);
+		return $result_set;
+	}
+	public function getMessageLog(){
+		#code...
+	}
+	
+	//Forum Post
+    //User Public Forum Post
+	private static $forum_posts_table = "forum_posts"; //Db Table
+    public $subject;
+    // public $content;
+    // public $forum_id;
+    // public $date_added = 'NOW()';//In the DBase, it authomatically set....
+    public $author_user_id;
+	///////////////////////
+	//Return
+	///////////////////////
+	public function getForumPostsNum(){
+		global $data;
+		$sql = $data->select_by_where(self::$forum_posts_table, 'author_user_id', $this->id);
+        $result_set = $data->num_rows($sql);
+		return $result_set;
+	}
+	public function getForumPosts(){
+		#code...
 	}
 }
 ?>

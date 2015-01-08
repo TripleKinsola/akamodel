@@ -1,6 +1,11 @@
 <?php
 /**
- *
+ * <h1>Akaddit v2 LastLoginLog Class</h1>
+ * @author Akinsola Ademola, A [07062671144]
+ * @version 2.0, 2014/2015
+ * @link http://geekerbyte.blogspot.com => TripleKinsola@gmail.com
+ * @copyright date('Y');
+ * 
  */
 class LastLoginLog{
     // Migration properties...
@@ -10,13 +15,13 @@ class LastLoginLog{
     //3	time	timestamp 	CURRENT_TIMESTAMP
     //4	device	varchar(500)
 
-    private static $table = "Last_login_logs"; //Db Table
+    private static $table = "last_login_logs"; //Db Table
     protected static $db_fields=array('id', 'user_id', 'time', 'device');
 
     // Class properties
     public $id;
     public $user_id;
-    public $time = 'NOW()';//In the DBase, it authomatically set....
+    // public $time = 'NOW()';//In the DBase, it authomatically set....
     public $device;
 
     // Common Database Methods
