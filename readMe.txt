@@ -14,6 +14,6 @@ How to make it work:
 Major/Basic dirs: 
 	application => API
 
-	test => functionality testing ground. [The file @ ./config/initialize.inc.php is required at the head of any test file, if needed, to have the framework gems ready to be use]
+	test => functionality testing ground. [The file @ ./config/initialize.inc.php is required at the head of any test file, if needed, to have the framework gems ready to be used]
 
-	public => for http public access. [The file @ ./config/initialize.inc.php is required at the head of any public file, if needed, to have the framework gems ready to be use]
+	public => for http public access. [The file @ ./config/initialize.inc.php is required at the head of any public file, if needed, to have the framework gems ready to be used]
